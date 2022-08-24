@@ -3,7 +3,7 @@
 const greenCardsAssets = {};
 
 for (let index = 1; index < 19; index++) {
-  greenCardsAssets[`green${index}`] = `url(../assets/MythicCards/green/green${index}.png)`;
+  greenCardsAssets[`green${index}`] = `url(./assets/MythicCards/green/green${index}.png)`;
 };
 
 const cardsDataGreen = [
