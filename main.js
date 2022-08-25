@@ -140,7 +140,6 @@ document
           .classList.add("difficulty-selection__item_active");
       }
     }
-
     createMatrix(ancientItem);
     addgameTableStack(matrix);
     sortArray(ancientItem, difficult);
@@ -209,7 +208,6 @@ function sortArray(ancient, difficult) {
     greenArray = [...greenArrayEasy, ...greenArrayNormal, ...greenArrayHard];
     brownArray = [...brownArrayEasy, ...brownArrayNormal, ...brownArrayHard];
     bluArray = [...bluArrayEasy, ...bluArrayNormal, ...bluArrayHard];
-
     shuffle(greenArray);
     shuffle(brownArray);
     shuffle(bluArray);
@@ -224,7 +222,6 @@ function sortArray(ancient, difficult) {
     brownArray = [...brownArrayHard, ...brownArrayNormal];
     bluArray = [...bluArrayHard, ...bluArrayNormal];
   }
-
   lengthСheckArray(greenCards, greenArray);
   lengthСheckArray(brownCards, brownArray);
   lengthСheckArray(blueCards, bluArray);
@@ -248,8 +245,16 @@ function lengthСheckArray(cards, array) {
   }
 }
 
+// function shuffle(array) {
+//   return array.sort(() => Math.random() - 0.5);
+// }
+
 function shuffle(array) {
-  return array.sort(() => Math.random() - 0.5);
+  for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 }
 
 // END MAIN SORT
@@ -274,16 +279,12 @@ gameCardBackground.addEventListener("click", () => {
     if (summStageMatrix === 0) {
       stage += 1;
     }
-
     showbackgroundImage(random);
     addgameTableStack(matrix);
   }
 });
 
 function showbackgroundImage(random) {
-  // if(matrix[stage][random] === undefined) {
-  //     return
-  // } else
   if (random === 0 && matrix[stage][random] !== 0) {
     gameCardItem.style.backgroundImage = `${greenArray.pop()}`;
     matrix[stage][random] -= 1;
