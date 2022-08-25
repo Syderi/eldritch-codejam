@@ -200,22 +200,19 @@ function sortArray(ancient, difficult) {
     bluArray = [...bluArrayEasy, ...bluArrayNormal];
   }
   if (difficult === 2) {
-    greenArray = [...greenArrayEasy, ...greenArrayNormal];
-    brownArray = [...brownArrayEasy, ...brownArrayNormal];
-    bluArray = [...bluArrayEasy, ...bluArrayNormal];
+    greenArray = shuffle([...greenArrayEasy, ...greenArrayNormal]);
+    brownArray = shuffle([...brownArrayEasy, ...brownArrayNormal]);
+    bluArray = shuffle([...bluArrayEasy, ...bluArrayNormal]);
   }
   if (difficult === 3) {
-    greenArray = [...greenArrayEasy, ...greenArrayNormal, ...greenArrayHard];
-    brownArray = [...brownArrayEasy, ...brownArrayNormal, ...brownArrayHard];
-    bluArray = [...bluArrayEasy, ...bluArrayNormal, ...bluArrayHard];
-    shuffle(greenArray);
-    shuffle(brownArray);
-    shuffle(bluArray);
+    greenArray = shuffle([...greenArrayEasy, ...greenArrayNormal, ...greenArrayHard]);
+    brownArray = shuffle([...brownArrayEasy, ...brownArrayNormal, ...brownArrayHard]);
+    bluArray = shuffle([...bluArrayEasy, ...bluArrayNormal, ...bluArrayHard]);
   }
   if (difficult === 4) {
-    greenArray = [...greenArrayNormal, ...greenArrayHard];
-    brownArray = [...brownArrayNormal, ...brownArrayHard];
-    bluArray = [...bluArrayNormal, ...bluArrayHard];
+    greenArray = shuffle([...greenArrayNormal, ...greenArrayHard]);
+    brownArray = shuffle([...brownArrayNormal, ...brownArrayHard]);
+    bluArray = shuffle([...bluArrayNormal, ...bluArrayHard]);
   }
   if (difficult === 5) {
     greenArray = [...greenArrayHard, ...greenArrayNormal];
