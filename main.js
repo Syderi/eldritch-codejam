@@ -167,17 +167,17 @@ function sortArray(ancient, difficult) {
   let bluArrayNormal = [];
   let bluArrayHard = [];
 
-  let greenCards =
+  let greenCardsLength =
     ancientsData[ancient].firstStage.greenCards +
     ancientsData[ancient].secondStage.greenCards +
     ancientsData[ancient].thirdStage.greenCards;
 
-  let blueCards =
+  let blueCardsLength =
     ancientsData[ancient].firstStage.blueCards +
     ancientsData[ancient].secondStage.blueCards +
     ancientsData[ancient].thirdStage.blueCards;
 
-  let brownCards =
+  let brownCardsLength =
     ancientsData[ancient].firstStage.brownCards +
     ancientsData[ancient].secondStage.brownCards +
     ancientsData[ancient].thirdStage.brownCards;
@@ -219,9 +219,9 @@ function sortArray(ancient, difficult) {
     brownArray = [...brownArrayHard, ...brownArrayNormal];
     bluArray = [...bluArrayHard, ...bluArrayNormal];
   }
-  lengthСheckArray(greenCards, greenArray);
-  lengthСheckArray(brownCards, brownArray);
-  lengthСheckArray(blueCards, bluArray);
+  lengthСheckArray(greenCardsLength, greenArray);
+  lengthСheckArray(brownCardsLength, brownArray);
+  lengthСheckArray(blueCardsLength, bluArray);
 }
 
 function addArrayWithDifficult(data, array, difficult) {
@@ -233,13 +233,15 @@ function addArrayWithDifficult(data, array, difficult) {
   shuffle(array);
 }
 
-function lengthСheckArray(cards, array) {
-  if (array.length > cards) {
-    while (array.length > cards) {
-      array.pop();
-    }
-    return shuffle(array);
-  }
+function lengthСheckArray(cardsLength, array) {
+  array.length = cardsLength;
+  // if (array.length > cards) {
+  //   while (array.length > cards) {
+  //     array.pop();
+  //   }
+
+  // }
+  return shuffle(array);
 }
 
 // function shuffle(array) {
